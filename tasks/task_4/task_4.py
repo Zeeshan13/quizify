@@ -1,6 +1,12 @@
 # embedding_client.py
+import streamlit as st
 
 from langchain_google_vertexai import VertexAIEmbeddings
+#from langchain.embeddings.google_vertexai import VertexAIEmbeddings
+import os
+
+#os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "authentication.json"
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "D:/Radical X/Mission Quizzify/quizify/authentication.json"
 
 class EmbeddingClient:
     """
@@ -33,9 +39,13 @@ class EmbeddingClient:
         # Initialize the VertexAIEmbeddings client with the given parameters
         # Read about the VertexAIEmbeddings wrapper from Langchain here
         # https://python.langchain.com/docs/integrations/text_embedding/google_generative_ai
+
         self.client = VertexAIEmbeddings(
-            #### YOUR CODE HERE ####
+            model_name=model_name,
+            project=project,
+            location=location
         )
+        
         
     def embed_query(self, query):
         """
@@ -62,11 +72,13 @@ class EmbeddingClient:
 
 if __name__ == "__main__":
     model_name = "textembedding-gecko@003"
-    project = "YOUR PROJECT ID HERE"
+    project = "missionquizzify"
     location = "us-central1"
 
     embedding_client = EmbeddingClient(model_name, project, location)
     vectors = embedding_client.embed_query("Hello World!")
     if vectors:
-        print(vectors)
-        print("Successfully used the embedding client!")
+        #print(vectors)
+        #print("Successfully used the embedding client!")
+        st.write(vectors)  # Display the vectors
+        st.success("Successfully used the embedding client!")  # Display success message
