@@ -6,7 +6,7 @@ from langchain_google_vertexai import VertexAIEmbeddings
 import os
 
 #os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "authentication.json"
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "D:/Radical X/Mission Quizzify/quizify/authentication.json"
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "D:/Projects/Radical X/Mission Quizzify/quizify/authentication.json"
 
 class EmbeddingClient:
     """
@@ -72,7 +72,7 @@ class EmbeddingClient:
 
 if __name__ == "__main__":
     model_name = "textembedding-gecko@003"
-    project = "missionquizzify"
+    project = "sample-mission-442314"
     location = "us-central1"
 
     embedding_client = EmbeddingClient(model_name, project, location)

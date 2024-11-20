@@ -3,7 +3,7 @@ node_modules/
 
 # Ignore environment variable files
 env/
-
+db/
 # Ignore log files
 *.log
 authentication.json
