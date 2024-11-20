@@ -2,7 +2,11 @@ import streamlit as st
 import os
 import sys
 import json
-sys.path.append(os.path.abspath('../../'))
+# sys.path.append(os.path.abspath('../../'))
+
+base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../.."))
+sys.path.append(base_dir)
+
 from tasks.task_3.task_3 import DocumentProcessor
 from tasks.task_4.task_4 import EmbeddingClient
 from tasks.task_5.task_5 import ChromaCollectionCreator
